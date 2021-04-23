@@ -13,14 +13,14 @@
 
         const reposResponse = await fetch(`${url}/${user}/repos?per_page=${count}&sort=${sort}&clientID=${clientID}&clientSecret=${clientSecret}`);
 
-        //depois que buscar ele transforma o arquivo em json
+        //transforma o arquivo que buscou em json
         const profile = await profileResponse.json();
         const repos = await reposResponse.json();
 
         return {profile, repos} ;
     }
 
-    //aparece quando usuario estiver digitando. Detalhes da consulta
+    //Detalhes da consulta
     function showProfile(user){
         profile.innerHTML = `
             <div class="row mt-3">
@@ -44,6 +44,7 @@
             </div>`;
     }
 
+    //Repositorios, máximo 7
     function showRepositorio(repos){
         let saida = '';
 
